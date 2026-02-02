@@ -1,0 +1,10 @@
+[package]
+name = "private_auction_circuits"
+type = "bin"                    # or "lib" if you want to reuse as dependency
+authors = ["adeyemitomiwa7@gmail.com"]
+compiler_version = ">=0.30.0"   # bump to match your nargo version
+
+[dependencies]
+
+# If using external poseidon (optional but cleaner)
+# poseidon = { git = "https://github.com/noir-lang/poseidon", tag = "v0.x.y" }

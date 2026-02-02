@@ -1,0 +1,24 @@
+# Prover.toml
+# Example private witness values — used when running nargo prove
+
+[bid_commitment]
+bid_amount = "1200"
+random_salt = "987654321"
+bidder_pubkey = "12345678901234567890"
+
+[winner_selection]
+bid_count = "2"
+
+# You would normally fill arrays like this:
+# bids[0].amount = "1000"
+# bids[0].salt = "111"
+# bids[0].bidder_pubkey = "555"
+# bids[0].is_valid = "1"
+# ... etc.
+
+[delivery_confirmation]
+salt = "123456"
+
+# proof.shipping_address_hash = "987654321"
+# proof.tracking_number = "ABC123XYZ"
+# ... etc.

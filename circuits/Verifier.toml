@@ -1,0 +1,21 @@
+# Verifier.toml
+# Example public inputs — what the Solana program would see
+
+[bid_commitment]
+reserve_price = "1000"
+commitment_hash = "some_hash_value_in_decimal_or_hex_if_supported"
+
+[winner_selection]
+bid_count = "2"
+winner_index = "1"
+winner_pubkey = "98765432109876543210"
+winning_amount = "1200"
+second_price = "1000"
+
+[delivery_confirmation]
+auction_id = "111222333444"
+auction_end_time = "1700000000"
+buyer_address_hash = "987654321"
+expected_tracking = "ABC123XYZ"
+confirmation_hash = "some_hash"
+current_time = "1701000000"
