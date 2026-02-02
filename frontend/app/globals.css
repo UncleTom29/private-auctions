@@ -1,0 +1,286 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 10 10 15;
+    --foreground: 255 255 255;
+    --primary: 147 51 234;
+    --primary-foreground: 255 255 255;
+    --secondary: 26 26 36;
+    --secondary-foreground: 161 161 170;
+    --accent: 6 182 212;
+    --accent-foreground: 255 255 255;
+    --muted: 34 34 48;
+    --muted-foreground: 113 113 122;
+    --border: 63 63 70;
+    --ring: 147 51 234;
+    --radius: 0.5rem;
+  }
+ 
+  * {
+    @apply border-border;
+  }
+ 
+  html {
+    @apply scroll-smooth;
+  }
+ 
+  body {
+    @apply bg-background-primary text-text-primary antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+ 
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+ 
+  ::-webkit-scrollbar-track {
+    @apply bg-background-secondary;
+  }
+ 
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-600/50 rounded-full;
+  }
+ 
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-600;
+  }
+}
+ 
+@layer components {
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10;
+  }
+ 
+  .glass-hover {
+    @apply hover:bg-white/10 hover:border-white/20 transition-all duration-300;
+  }
+ 
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-400 via-accent-cyan to-primary-400 bg-clip-text text-transparent;
+    background-size: 200% auto;
+    animation: gradient 3s ease infinite;
+  }
+ 
+  /* Card styles */
+  .card {
+    @apply bg-background-secondary rounded-2xl border border-white/5 p-6;
+  }
+ 
+  .card-hover {
+    @apply hover:border-primary-500/30 hover:shadow-glow transition-all duration-300;
+  }
+ 
+  /* Button base styles */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-medium transition-all duration-200;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-background-primary;
+    @apply disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+ 
+  .btn-primary {
+    @apply btn bg-primary-600 text-white hover:bg-primary-500 active:bg-primary-700;
+    @apply shadow-lg shadow-primary-500/25 hover:shadow-primary-500/40;
+  }
+ 
+  .btn-secondary {
+    @apply btn bg-background-tertiary text-text-primary hover:bg-background-elevated;
+    @apply border border-white/10 hover:border-white/20;
+  }
+ 
+  .btn-ghost {
+    @apply btn bg-transparent text-text-secondary hover:text-text-primary hover:bg-white/5;
+  }
+ 
+  .btn-danger {
+    @apply btn bg-status-error text-white hover:bg-red-600;
+  }
+ 
+  /* Input styles */
+  .input {
+    @apply w-full bg-background-tertiary border border-white/10 rounded-xl px-4 py-3;
+    @apply text-text-primary placeholder:text-text-muted;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent;
+    @apply transition-all duration-200;
+  }
+ 
+  .input-error {
+    @apply border-status-error focus:ring-status-error;
+  }
+ 
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-medium;
+  }
+ 
+  .badge-primary {
+    @apply badge bg-primary-500/20 text-primary-400;
+  }
+ 
+  .badge-success {
+    @apply badge bg-status-success/20 text-status-success;
+  }
+ 
+  .badge-warning {
+    @apply badge bg-status-warning/20 text-status-warning;
+  }
+ 
+  .badge-error {
+    @apply badge bg-status-error/20 text-status-error;
+  }
+ 
+  .badge-info {
+    @apply badge bg-status-info/20 text-status-info;
+  }
+ 
+  /* Privacy indicator */
+  .privacy-indicator {
+    @apply flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary-500/10 border border-primary-500/20;
+  }
+ 
+  .privacy-dot {
+    @apply w-2 h-2 rounded-full bg-primary-400 animate-pulse;
+  }
+ 
+  /* Countdown timer */
+  .countdown-digit {
+    @apply bg-background-tertiary rounded-lg px-3 py-2 min-w-[3rem] text-center;
+    @apply font-mono text-2xl font-bold text-text-primary;
+  }
+ 
+  .countdown-separator {
+    @apply text-text-muted text-2xl font-bold mx-1;
+  }
+ 
+  /* Auction card */
+  .auction-card {
+    @apply card card-hover overflow-hidden;
+  }
+ 
+  .auction-card-image {
+    @apply aspect-square w-full object-cover;
+  }
+ 
+  .auction-card-content {
+    @apply p-4 space-y-3;
+  }
+ 
+  /* Skeleton loading */
+  .skeleton {
+    @apply animate-pulse bg-background-tertiary rounded;
+  }
+ 
+  /* Tab styles */
+  .tab {
+    @apply px-4 py-2 rounded-lg font-medium transition-all duration-200;
+    @apply text-text-secondary hover:text-text-primary hover:bg-white/5;
+  }
+ 
+  .tab-active {
+    @apply bg-primary-500/20 text-primary-400;
+  }
+}
+ 
+@layer utilities {
+  /* Glow effects */
+  .glow {
+    box-shadow: 0 0 20px rgba(147, 51, 234, 0.3);
+  }
+ 
+  .glow-hover:hover {
+    box-shadow: 0 0 30px rgba(147, 51, 234, 0.5);
+  }
+ 
+  /* Text balance */
+  .text-balance {
+    text-wrap: balance;
+  }
+ 
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+ 
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+ 
+  /* Aspect ratios */
+  .aspect-auction {
+    aspect-ratio: 4/3;
+  }
+ 
+  /* Grid patterns */
+  .bg-grid {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+ 
+  /* Gradient borders */
+  .gradient-border {
+    position: relative;
+  }
+ 
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.5), rgba(6, 182, 212, 0.5));
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+ 
+/* Animations */
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+ 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+ 
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+ 
+/* Privy modal customization */
+.privy-dialog {
+  @apply bg-background-secondary border border-white/10 !important;
+}
+ 
+.privy-button {
+  @apply btn-primary !important;
+}
